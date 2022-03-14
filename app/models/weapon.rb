@@ -3,12 +3,6 @@ class Weapon < ApplicationRecord
   validates :power_step, numericality: { equal_to:100 }
   validates :level, numericality: { greater_than: 0, less_than_or_equal_to: 99 }
 
-  def initialize
-    @power_base = 3000
-    @power_step = 100
-    @level = 1
-  end
-
   def current_power
     (power_base + ((level - 1) * power_step))
   end
